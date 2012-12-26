@@ -39,8 +39,40 @@ describe(@"Correct calling", ^{
         [[theValue(returnedFlag) should]equal:theValue(NO)];
         [[theValue([returnedResultData length]) should]equal:theValue(fileLen - 1)];
     });
-
-    
+    it(@"Data have to be the same as data that was taken in simple way",^{
+            __block BOOL returnedFlag;
+            __block NSUInteger startPoint;
+            __block NSData * returnedResultData;
+            
+        NSURL * path = [NSURL URLWithString:filePath];
+        [BytewiseFileAccess dataURL:path from:0 length:fileLen successHandler:^(NSData *resultData, NSUInteger pointer, BOOL isFinish) {
+            startPoint = pointer;
+            returnedFlag = isFinish;
+            returnedResultData = resultData;
+        } errorHandler:nil];
+        [[returnedResultData should]equal:[NSData dataWithContentsOfURL:path]];
+    });
+   
+    it(@"part of data have to be same as part of data that was taken in simple way",^{
+        __block BOOL returnedFlag;
+        __block NSUInteger startPoint;
+        __block NSData * returnedResultData;
+        
+        NSURL * path = [NSURL URLWithString:filePath];
+        [BytewiseFileAccess dataURL:path from:0 length:fileLen-1 successHandler:^(NSData *resultData, NSUInteger pointer, BOOL isFinish) {
+            startPoint = pointer;
+            returnedFlag = isFinish;
+            returnedResultData = resultData;
+        } errorHandler:nil];
+        
+        NSData *data = [NSData dataWithContentsOfURL:path];
+        NSUInteger len = [data length];
+        Byte *byteData = (Byte*)malloc(len);
+        memcpy(byteData, [data bytes], len);
+        
+        
+        [[returnedResultData should]equal:[NSData dataWithBytesNoCopy:byteData length:len-1 freeWhenDone:YES]];
+    });
 });
 describe(@"bad url", ^{
     it(@"uncorect url",^{
