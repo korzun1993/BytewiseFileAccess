@@ -89,7 +89,7 @@ describe(@"bad url", ^{
 });
 
 describe(@"bad begin position", ^{
-    it(@"uncorect lenght",^{
+    it(@"uncorect start point",^{
         __block NSError * returnedError;
         
         NSURL * path = [NSURL URLWithString:filePath];
