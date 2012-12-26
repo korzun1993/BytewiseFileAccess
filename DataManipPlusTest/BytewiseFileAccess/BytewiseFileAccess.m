@@ -18,7 +18,9 @@
     [stream setProperty:[NSNumber numberWithInt:startPoint] forKey:NSStreamFileCurrentOffsetKey];
     
     if([stream streamError]){
-        error([stream streamError]);
+        if(error){
+            error([stream streamError]);
+        }
     } else {
         Byte * data = malloc(sizeof(Byte)*length);
         NSInteger realLenght = [stream read:data maxLength:length];
