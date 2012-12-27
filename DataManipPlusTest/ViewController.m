@@ -23,18 +23,17 @@
 
 -(void)memoryTest
 {
-    
     NSString *imgPath = [[NSBundle mainBundle] pathForResource:@"car" ofType:@"png"];
     NSURL *url = [NSURL fileURLWithPath:imgPath];
     
     NSLog(@"URL - %@",url);
     for(int i = 0;i<1000000;i++){
-        [[DXDataChunkGenerator shared] dataChunkForFileAtURL:url
-                                                        from:0
-                                                      length:2048
-                                              successHandler:^(NSData *chunkData, NSUInteger pointer, BOOL isFinished) {
-                                                  chunkData = nil;
-                                              } errorHandler:nil];
+        [DXDataChunkGenerator dataChunkForFileAtURL:url
+                                               from:0
+                                             length:2048
+                                     successHandler:^(NSData *chunkData, NSUInteger pointer, BOOL isFinished) {
+                                         chunkData = nil;
+                                     } errorHandler:nil];
     }
 
 }

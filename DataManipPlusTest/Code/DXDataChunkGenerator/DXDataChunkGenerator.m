@@ -7,11 +7,10 @@
 //
 
 #import "DXDataChunkGenerator.h"
-#import <DXFoundation/DXFileManager.h>
 
 @implementation DXDataChunkGenerator
 
-- (void)dataChunkForFileAtPath:(NSString *)path
++ (void)dataChunkForFileAtPath:(NSString *)path
                           from:(NSUInteger)startPoint
                         length:(NSUInteger)length
                 successHandler:(DXDataChunkGeneratorSuccessHandler)successHandler
@@ -24,7 +23,7 @@
                           errorHandler:error];
 }
 
-- (void)dataChunkForFileAtURL:(NSURL *)URL
++ (void)dataChunkForFileAtURL:(NSURL *)URL
                          from:(NSUInteger)startPoint
                        length:(NSUInteger)length
                successHandler:(DXDataChunkGeneratorSuccessHandler)successHandler
@@ -32,7 +31,7 @@
 {
     NSInputStream * stream =[[NSInputStream alloc] initWithURL:URL];
     [stream open];
-    [stream setProperty:@(startPoint) forKey:NSStreamFileCurrentOffsetKey];
+    [stream setProperty:[[NSNumber alloc] initWithInteger:startPoint] forKey:NSStreamFileCurrentOffsetKey];
 
     if([stream streamError]){
         if (error) {
@@ -48,7 +47,6 @@
             error([NSError errorWithDomain:@"DXDataChunkGeneratorError"
                                       code:0
                                   userInfo:@{@"errorMessage" : @"The maximum length was exceeded"}]);
-            
             return;
         }
         
@@ -59,7 +57,7 @@
         BOOL isFinished = !([stream read:testByte maxLength:1]);
         NSUInteger pointer = startPoint + realLenght;
         
-        if(successHandler){
+        if (successHandler) {
             successHandler(resultData, pointer, isFinished);
         }
         free(testByte);

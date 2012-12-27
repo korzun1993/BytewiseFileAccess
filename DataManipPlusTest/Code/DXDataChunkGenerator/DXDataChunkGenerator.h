@@ -6,20 +6,18 @@
 //  Copyright (c) 2012 111Minutes. All rights reserved.
 //
 
-#import <DXFoundation/DXSingleton.h>
-
 typedef void (^DXDataChunkGeneratorSuccessHandler)(NSData *chunkData, NSUInteger pointer, BOOL isFinished);
 typedef void (^DXDataChunkGeneratorErrorHandler)(NSError *error);
 
-@interface DXDataChunkGenerator : NSObject <DXSingleton>
+@interface DXDataChunkGenerator : NSObject
 
-- (void)dataChunkForFileAtPath:(NSString *)path
++ (void)dataChunkForFileAtPath:(NSString *)path
                           from:(NSUInteger)startPoint
                         length:(NSUInteger)length
                 successHandler:(DXDataChunkGeneratorSuccessHandler)successHandler
                   errorHandler:(DXDataChunkGeneratorErrorHandler)error;
 
-- (void)dataChunkForFileAtURL:(NSURL *)URL
++ (void)dataChunkForFileAtURL:(NSURL *)URL
                          from:(NSUInteger)startPoint
                        length:(NSUInteger)length
                successHandler:(DXDataChunkGeneratorSuccessHandler)successHandler

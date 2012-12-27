@@ -25,14 +25,14 @@ describe(@"Correct calling", ^{
  
     it(@"With getting all data from file",^{
         
-        [[DXDataChunkGenerator shared] dataChunkForFileAtURL:path
-                                                        from:0
-                                                      length:fileLen
-                                              successHandler:^(NSData *chunkData, NSUInteger pointer, BOOL isFinished) {
-                                                  startPoint = pointer;
-                                                  returnedFlag = isFinished;
-                                                  returnedResultData = chunkData;
-                                              } errorHandler:nil];
+        [DXDataChunkGenerator dataChunkForFileAtURL:path
+                                               from:0
+                                             length:fileLen
+                                      successHandler:^(NSData *chunkData, NSUInteger pointer, BOOL isFinished) {
+                                          startPoint = pointer;
+                                          returnedFlag = isFinished;
+                                          returnedResultData = chunkData;
+                                      } errorHandler:nil];
         
         [[theValue(startPoint) should] equal:theValue(fileLen)];
         [[theValue(returnedFlag) should]equal:theValue(YES)];
@@ -41,14 +41,14 @@ describe(@"Correct calling", ^{
     
     it(@"With getting not all data from file",^{
         
-        [[DXDataChunkGenerator shared] dataChunkForFileAtURL:path
-                                                        from:0
-                                                      length:fileLen - 1
-                                              successHandler:^(NSData *chunkData, NSUInteger pointer, BOOL isFinished) {
-                                                  startPoint = pointer;
-                                                  returnedFlag = isFinished;
-                                                  returnedResultData = chunkData;
-                                              } errorHandler:nil];
+        [DXDataChunkGenerator dataChunkForFileAtURL:path
+                                                from:0
+                                              length:fileLen - 1
+                                      successHandler:^(NSData *chunkData, NSUInteger pointer, BOOL isFinished) {
+                                          startPoint = pointer;
+                                          returnedFlag = isFinished;
+                                          returnedResultData = chunkData;
+                                      } errorHandler:nil];
 
         [[theValue(startPoint) should] equal:theValue(fileLen - 1)];
         [[theValue(returnedFlag) should]equal:theValue(NO)];
@@ -57,28 +57,28 @@ describe(@"Correct calling", ^{
     
     it(@"Data have to be the same as data that was taken in simple way",^{
         
-        [[DXDataChunkGenerator shared] dataChunkForFileAtURL:path
-                                                        from:0
-                                                      length:fileLen
-                                              successHandler:^(NSData *chunkData, NSUInteger pointer, BOOL isFinished) {
-                                                  startPoint = pointer;
-                                                  returnedFlag = isFinished;
-                                                  returnedResultData = chunkData;
-                                              } errorHandler:nil];
+        [DXDataChunkGenerator dataChunkForFileAtURL:path
+                                                from:0
+                                              length:fileLen
+                                      successHandler:^(NSData *chunkData, NSUInteger pointer, BOOL isFinished) {
+                                          startPoint = pointer;
+                                          returnedFlag = isFinished;
+                                          returnedResultData = chunkData;
+                                      } errorHandler:nil];
 
         [[returnedResultData should]equal:[NSData dataWithContentsOfURL:path]];
     });
    
     it(@"part of data have to be same as part of data that was taken in simple way",^{
         
-        [[DXDataChunkGenerator shared] dataChunkForFileAtURL:path
-                                                        from:0
-                                                      length:fileLen - 1
-                                              successHandler:^(NSData *chunkData, NSUInteger pointer, BOOL isFinished) {
-                                                  startPoint = pointer;
-                                                  returnedFlag = isFinished;
-                                                  returnedResultData = chunkData;
-                                              } errorHandler:nil];
+        [DXDataChunkGenerator dataChunkForFileAtURL:path
+                                                from:0
+                                              length:fileLen - 1
+                                      successHandler:^(NSData *chunkData, NSUInteger pointer, BOOL isFinished) {
+                                          startPoint = pointer;
+                                          returnedFlag = isFinished;
+                                          returnedResultData = chunkData;
+                                      } errorHandler:nil];
         
         NSData *data = [NSData dataWithContentsOfURL:path];
         NSUInteger len = [data length];
@@ -93,13 +93,13 @@ describe(@"bad url", ^{
 
         NSURL * url = [NSURL URLWithString:@"file://wrongAdress"];
 
-        [[DXDataChunkGenerator shared] dataChunkForFileAtURL:url
-                                                        from:0
-                                                      length:1
-                                              successHandler:nil
-                                                errorHandler:^(NSError *error) {
-                                                    returnedError = error;
-                                                }];
+        [DXDataChunkGenerator dataChunkForFileAtURL:url
+                                                from:0
+                                              length:1
+                                      successHandler:nil
+                                        errorHandler:^(NSError *error) {
+                                            returnedError = error;
+                                        }];
         
         [[returnedError.localizedDescription should] equal:@"The operation couldn’t be completed. No such file or directory"];
     });
@@ -108,13 +108,13 @@ describe(@"bad url", ^{
 describe(@"bad begin position", ^{
     it(@"uncorect start point",^{
         
-        [[DXDataChunkGenerator shared] dataChunkForFileAtURL:path
-                                                        from:0
-                                                      length:1
-                                              successHandler:nil
-                                                errorHandler:^(NSError *error) {
-                                                    returnedError = error;
-                                                }];
+        [DXDataChunkGenerator dataChunkForFileAtURL:path
+                                                from:0
+                                              length:1
+                                      successHandler:nil
+                                        errorHandler:^(NSError *error) {
+                                            returnedError = error;
+                                        }];
       
         [[[returnedError.userInfo objectForKey:@"errorMessage"] should] equal:@"The maximum length was exceeded"];
     });
