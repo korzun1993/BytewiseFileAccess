@@ -3,8 +3,6 @@
 
 #import "DXDataChunkGenerator.h"
 
-#define fileLen 29158
-
 SPEC_BEGIN(NewKiwiSpec)
 
 __block BOOL returnedFlag;
@@ -12,13 +10,17 @@ __block NSUInteger startPoint;
 __block NSData * returnedResultData;
 __block NSURL * path;
 __block NSError * returnedError;
+__block NSInteger fileLen;
+
 
 beforeEach(^{
     returnedFlag = NO;
     startPoint = 0;
     returnedResultData = nil;
     returnedError = nil;
-    path = [NSURL URLWithString:[[NSBundle bundleWithIdentifier:@"test.111min.chunkgenerator"] pathForResource:@"car" ofType:@"png"]];
+    NSBundle *bundle = [NSBundle bundleWithIdentifier:@"test.111min.chunkgenerator"];
+    path = [NSURL fileURLWithPath: [bundle pathForResource:@"car" ofType:@"png"]];
+    fileLen = [[NSData dataWithContentsOfURL:path] length];
 });
 
 describe(@"Correct calling", ^{
@@ -114,7 +116,7 @@ describe(@"bad begin position", ^{
     it(@"uncorect start point",^{
         
         [DXDataChunkGenerator dataChunkForFileAtURL:path
-                                                from:0
+                                                from:fileLen + 1
                                               length:1
                                       successHandler:nil
                                         errorHandler:^(NSError *error) {

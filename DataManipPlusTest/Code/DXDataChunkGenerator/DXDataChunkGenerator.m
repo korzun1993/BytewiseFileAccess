@@ -41,12 +41,14 @@
 
         Byte * data = malloc(sizeof(Byte)*length);
         NSInteger realLength = [stream read:data maxLength:length];
-        
-        if(realLength == 0 && error){
+        NSLog(@"real len---%d",realLength);
+        if(realLength <= 0){
+            if(error){
             
-            error([NSError errorWithDomain:@"DXDataChunkGeneratorError"
+                error([NSError errorWithDomain:@"DXDataChunkGeneratorError"
                                       code:0
                                   userInfo:@{@"errorMessage" : @"The maximum length was exceeded"}]);
+            }
             return;
         }
         
@@ -54,7 +56,7 @@
 
         Byte *testByte = malloc(sizeof(Byte));
         
-        BOOL isFinished = sizeof(data) < length;
+        BOOL isFinished = ![stream read:testByte maxLength:1];
         NSUInteger pointer = startPoint + length;
         
         if (successHandler) {
