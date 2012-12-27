@@ -13,7 +13,7 @@
 +(void)dataURL:(NSURL *)URL from:(NSUInteger)startPoint length:(NSUInteger)length successHandler :(void (^)(NSData *, NSUInteger, BOOL))success errorHandler:(void (^)(NSError *))error
 {
     NSData *resultData;
-    NSInputStream * stream = [NSInputStream inputStreamWithURL:URL];
+    NSInputStream * stream =[[NSInputStream alloc] initWithURL:URL];
     [stream open];
     [stream setProperty:[NSNumber numberWithInt:startPoint] forKey:NSStreamFileCurrentOffsetKey];
     
@@ -38,6 +38,7 @@
         free(testByte);
     }
     [stream close];
+    stream = nil;
 }
 
 @end
