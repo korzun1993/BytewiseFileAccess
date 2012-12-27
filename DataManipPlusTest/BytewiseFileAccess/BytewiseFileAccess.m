@@ -25,15 +25,13 @@
         Byte * data = malloc(sizeof(Byte)*length);
         NSInteger realLenght = [stream read:data maxLength:length];
        
-        if(realLenght==0){
-            if(error){
-            error([NSError errorWithDomain:@"not standard error" code:0 userInfo:[NSDictionary dictionaryWithObject:@"The maximum length was exceeded" forKey:@"error"]]);
-            }
+        if(realLenght==0 && error){
+                error([NSError errorWithDomain:@"not standard error" code:0 userInfo:[NSDictionary dictionaryWithObject:@"The maximum length was exceeded" forKey:@"error"]]);
         }
         
         resultData = [NSData dataWithBytesNoCopy:data length:length freeWhenDone:YES];
-
         Byte testByte[1];
+        
         if(success){
             success(resultData,startPoint+realLenght,!([stream read:testByte maxLength:1]));
         }
