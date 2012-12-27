@@ -40,9 +40,9 @@
     } else {
 
         Byte * data = malloc(sizeof(Byte)*length);
-        NSInteger realLenght = [stream read:data maxLength:length];
+        NSInteger realLength = [stream read:data maxLength:length];
         
-        if(realLenght == 0 && error){
+        if(realLength == 0 && error){
             
             error([NSError errorWithDomain:@"DXDataChunkGeneratorError"
                                       code:0
@@ -50,12 +50,12 @@
             return;
         }
         
-        NSData *resultData = [[NSData alloc] initWithBytesNoCopy:data length:length freeWhenDone:YES];
+        NSData *resultData = [[NSData alloc] initWithBytesNoCopy:data length:length];
 
         Byte *testByte = malloc(sizeof(Byte));
         
-        BOOL isFinished = !([stream read:testByte maxLength:1]);
-        NSUInteger pointer = startPoint + realLenght;
+        BOOL isFinished = sizeof(data) < length;
+        NSUInteger pointer = startPoint + length;
         
         if (successHandler) {
             successHandler(resultData, pointer, isFinished);

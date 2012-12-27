@@ -18,7 +18,7 @@ beforeEach(^{
     startPoint = 0;
     returnedResultData = nil;
     returnedError = nil;
-    path = [[NSBundle mainBundle] URLForResource:@"car" withExtension:@"png"];
+    path = [NSURL URLWithString:[[NSBundle bundleWithIdentifier:@"test.111min.chunkgenerator"] pathForResource:@"car" ofType:@"png"]];
 });
 
 describe(@"Correct calling", ^{
@@ -51,7 +51,7 @@ describe(@"Correct calling", ^{
                                       } errorHandler:nil];
 
         [[theValue(startPoint) should] equal:theValue(fileLen - 1)];
-        [[theValue(returnedFlag) should]equal:theValue(NO)];
+        [[theValue(returnedFlag) should] equal:theValue(NO)];
         [[theValue([returnedResultData length]) should]equal:theValue(fileLen - 1)];
     });
     
@@ -66,7 +66,12 @@ describe(@"Correct calling", ^{
                                           returnedResultData = chunkData;
                                       } errorHandler:nil];
 
-        [[returnedResultData should]equal:[NSData dataWithContentsOfURL:path]];
+        
+        NSData *data = [NSData dataWithContentsOfFile:[path path]];
+        
+        BOOL dataEquals = [returnedResultData isEqualToData:data];
+        
+        [[theValue(dataEquals) should] equal:theValue(YES)];
     });
    
     it(@"part of data have to be same as part of data that was taken in simple way",^{

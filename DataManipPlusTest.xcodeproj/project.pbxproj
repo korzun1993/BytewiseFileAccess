@@ -8,9 +8,10 @@
 
 /* Begin PBXBuildFile section */
 		06995E4E41164EB5B1BDF242 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 792C544ACCB1404DA47A1446 /* libPods.a */; };
+		BC3B828B168C8B8500BE247F /* DXDataChunkGenerator.m in Sources */ = {isa = PBXBuildFile; fileRef = BCBECDF5168C54A100B1A984 /* DXDataChunkGenerator.m */; };
+		BC3B828D168C8D1C00BE247F /* car.png in Resources */ = {isa = PBXBuildFile; fileRef = D3A42791168A07F600D152A6 /* car.png */; };
 		BCBECDF6168C54A100B1A984 /* DXDataChunkGenerator.m in Sources */ = {isa = PBXBuildFile; fileRef = BCBECDF5168C54A100B1A984 /* DXDataChunkGenerator.m */; };
 		CC5195F868334126BEA7F86D /* libPods-KiwiUnitTest.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 9E5EA6F10F054B4FBD8A16A4 /* libPods-KiwiUnitTest.a */; };
-		D3A42793168A08DF00D152A6 /* car.png in Resources */ = {isa = PBXBuildFile; fileRef = D3A42791168A07F600D152A6 /* car.png */; };
 		D3A42794168A096B00D152A6 /* car.png in Resources */ = {isa = PBXBuildFile; fileRef = D3A42791168A07F600D152A6 /* car.png */; };
 		D3DB75431689F4B200E80EFF /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D3DB75421689F4B200E80EFF /* UIKit.framework */; };
 		D3DB75451689F4B200E80EFF /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D3DB75441689F4B200E80EFF /* Foundation.framework */; };
@@ -272,8 +273,8 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				BC3B828D168C8D1C00BE247F /* car.png in Resources */,
 				D3DB75741689F4D900E80EFF /* InfoPlist.strings in Resources */,
-				D3A42793168A08DF00D152A6 /* car.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -339,6 +340,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				BC3B828B168C8B8500BE247F /* DXDataChunkGenerator.m in Sources */,
 				D3DB75881689F5A300E80EFF /* Tests.mm in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
