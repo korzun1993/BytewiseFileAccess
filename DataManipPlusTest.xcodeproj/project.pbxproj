@@ -7,11 +7,11 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		06995E4E41164EB5B1BDF242 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 792C544ACCB1404DA47A1446 /* libPods.a */; };
+		BCBECDF6168C54A100B1A984 /* DXDataChunkGenerator.m in Sources */ = {isa = PBXBuildFile; fileRef = BCBECDF5168C54A100B1A984 /* DXDataChunkGenerator.m */; };
 		CC5195F868334126BEA7F86D /* libPods-KiwiUnitTest.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 9E5EA6F10F054B4FBD8A16A4 /* libPods-KiwiUnitTest.a */; };
 		D3A42793168A08DF00D152A6 /* car.png in Resources */ = {isa = PBXBuildFile; fileRef = D3A42791168A07F600D152A6 /* car.png */; };
 		D3A42794168A096B00D152A6 /* car.png in Resources */ = {isa = PBXBuildFile; fileRef = D3A42791168A07F600D152A6 /* car.png */; };
-		D3CD97C2168BB80D000374EC /* BytewiseFileAccess.m in Sources */ = {isa = PBXBuildFile; fileRef = D3CD97C1168BB80D000374EC /* BytewiseFileAccess.m */; };
-		D3CD97C3168BB827000374EC /* BytewiseFileAccess.m in Sources */ = {isa = PBXBuildFile; fileRef = D3CD97C1168BB80D000374EC /* BytewiseFileAccess.m */; };
 		D3DB75431689F4B200E80EFF /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D3DB75421689F4B200E80EFF /* UIKit.framework */; };
 		D3DB75451689F4B200E80EFF /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D3DB75441689F4B200E80EFF /* Foundation.framework */; };
 		D3DB75471689F4B200E80EFF /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D3DB75461689F4B200E80EFF /* CoreGraphics.framework */; };
@@ -31,14 +31,16 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		0AD63D10F8A2407A823D509C /* Pods.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.xcconfig; path = Pods/Pods.xcconfig; sourceTree = SOURCE_ROOT; };
+		792C544ACCB1404DA47A1446 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		9E5EA6F10F054B4FBD8A16A4 /* libPods-KiwiUnitTest.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-KiwiUnitTest.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		BCBECDF4168C54A100B1A984 /* DXDataChunkGenerator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DXDataChunkGenerator.h; sourceTree = "<group>"; };
+		BCBECDF5168C54A100B1A984 /* DXDataChunkGenerator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DXDataChunkGenerator.m; sourceTree = "<group>"; };
 		D3A42791168A07F600D152A6 /* car.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = car.png; path = ../car.png; sourceTree = "<group>"; };
-		D3CD97C0168BB80D000374EC /* BytewiseFileAccess.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BytewiseFileAccess.h; sourceTree = "<group>"; };
-		D3CD97C1168BB80D000374EC /* BytewiseFileAccess.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BytewiseFileAccess.m; sourceTree = "<group>"; };
 		D3DB753E1689F4B200E80EFF /* DataManipPlusTest.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DataManipPlusTest.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D3DB75421689F4B200E80EFF /* UIKit.framework */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		D3DB75441689F4B200E80EFF /* Foundation.framework */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
-		D3DB75461689F4B200E80EFF /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
+		D3DB75461689F4B200E80EFF /* CoreGraphics.framework */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
 		D3DB754A1689F4B200E80EFF /* DataManipPlusTest-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "DataManipPlusTest-Info.plist"; sourceTree = "<group>"; };
 		D3DB754C1689F4B200E80EFF /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		D3DB754E1689F4B200E80EFF /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -68,6 +70,7 @@
 				D3DB75431689F4B200E80EFF /* UIKit.framework in Frameworks */,
 				D3DB75451689F4B200E80EFF /* Foundation.framework in Frameworks */,
 				D3DB75471689F4B200E80EFF /* CoreGraphics.framework in Frameworks */,
+				06995E4E41164EB5B1BDF242 /* libPods.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -85,13 +88,21 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		D3CD97BF168BB80D000374EC /* BytewiseFileAccess */ = {
+		BCBECDE7168C543D00B1A984 /* Code */ = {
 			isa = PBXGroup;
 			children = (
-				D3CD97C0168BB80D000374EC /* BytewiseFileAccess.h */,
-				D3CD97C1168BB80D000374EC /* BytewiseFileAccess.m */,
+				BCBECDEB168C543D00B1A984 /* DXDataChunkGenerator */,
 			);
-			path = BytewiseFileAccess;
+			path = Code;
+			sourceTree = "<group>";
+		};
+		BCBECDEB168C543D00B1A984 /* DXDataChunkGenerator */ = {
+			isa = PBXGroup;
+			children = (
+				BCBECDF4168C54A100B1A984 /* DXDataChunkGenerator.h */,
+				BCBECDF5168C54A100B1A984 /* DXDataChunkGenerator.m */,
+			);
+			path = DXDataChunkGenerator;
 			sourceTree = "<group>";
 		};
 		D3DB75331689F4B200E80EFF = {
@@ -102,6 +113,7 @@
 				D3DB75411689F4B200E80EFF /* Frameworks */,
 				D3DB753F1689F4B200E80EFF /* Products */,
 				E316D90053384E278C5A5CBA /* Pods-KiwiUnitTest.xcconfig */,
+				0AD63D10F8A2407A823D509C /* Pods.xcconfig */,
 			);
 			sourceTree = "<group>";
 		};
@@ -122,6 +134,7 @@
 				D3DB75461689F4B200E80EFF /* CoreGraphics.framework */,
 				D3DB756B1689F4D900E80EFF /* SenTestingKit.framework */,
 				9E5EA6F10F054B4FBD8A16A4 /* libPods-KiwiUnitTest.a */,
+				792C544ACCB1404DA47A1446 /* libPods.a */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -129,7 +142,7 @@
 		D3DB75481689F4B200E80EFF /* DataManipPlusTest */ = {
 			isa = PBXGroup;
 			children = (
-				D3CD97BF168BB80D000374EC /* BytewiseFileAccess */,
+				BCBECDE7168C543D00B1A984 /* Code */,
 				D3DB75511689F4B200E80EFF /* AppDelegate.h */,
 				D3DB75521689F4B200E80EFF /* AppDelegate.m */,
 				D3DB755A1689F4B200E80EFF /* ViewController.h */,
@@ -184,6 +197,7 @@
 				D3DB753A1689F4B200E80EFF /* Sources */,
 				D3DB753B1689F4B200E80EFF /* Frameworks */,
 				D3DB753C1689F4B200E80EFF /* Resources */,
+				A6D2F14C4E7743C599CEF081 /* Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -266,6 +280,20 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
+		A6D2F14C4E7743C599CEF081 /* Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Pods-resources.sh\"\n";
+		};
 		D3DB75681689F4D900E80EFF /* ShellScript */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -303,7 +331,7 @@
 				D3DB754F1689F4B200E80EFF /* main.m in Sources */,
 				D3DB75531689F4B200E80EFF /* AppDelegate.m in Sources */,
 				D3DB755C1689F4B200E80EFF /* ViewController.m in Sources */,
-				D3CD97C2168BB80D000374EC /* BytewiseFileAccess.m in Sources */,
+				BCBECDF6168C54A100B1A984 /* DXDataChunkGenerator.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -312,7 +340,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				D3DB75881689F5A300E80EFF /* Tests.mm in Sources */,
-				D3CD97C3168BB827000374EC /* BytewiseFileAccess.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -398,6 +425,7 @@
 		};
 		D3DB75631689F4B200E80EFF /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 0AD63D10F8A2407A823D509C /* Pods.xcconfig */;
 			buildSettings = {
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "DataManipPlusTest/DataManipPlusTest-Prefix.pch";
@@ -409,6 +437,7 @@
 		};
 		D3DB75641689F4B200E80EFF /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 0AD63D10F8A2407A823D509C /* Pods.xcconfig */;
 			buildSettings = {
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "DataManipPlusTest/DataManipPlusTest-Prefix.pch";

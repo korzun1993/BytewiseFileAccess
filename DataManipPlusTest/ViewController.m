@@ -7,7 +7,8 @@
 //
 
 #import "ViewController.h"
-#import "BytewiseFileAccess.h"
+#import "DXDataChunkGenerator.h"
+
 @interface ViewController ()
 
 @end
@@ -28,17 +29,14 @@
     
     NSLog(@"URL - %@",url);
     for(int i = 0;i<1000000;i++){
-        [BytewiseFileAccess dataURL:url from:0 length:2048 successHandler:^(NSData *data, NSUInteger ptr, BOOL isFinal) {
-            data = nil;
-        } errorHandler:nil];
+        [[DXDataChunkGenerator shared] dataChunkForFileAtURL:url
+                                                        from:0
+                                                      length:2048
+                                              successHandler:^(NSData *chunkData, NSUInteger pointer, BOOL isFinished) {
+                                                  chunkData = nil;
+                                              } errorHandler:nil];
     }
 
-}
-
-- (void)didReceiveMemoryWarning
-{
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
 }
 
 @end
