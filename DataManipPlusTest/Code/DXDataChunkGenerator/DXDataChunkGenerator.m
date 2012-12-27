@@ -30,8 +30,7 @@
                successHandler:(DXDataChunkGeneratorSuccessHandler)successHandler
                  errorHandler:(DXDataChunkGeneratorErrorHandler)error
 {
-    NSData *resultData = nil;
-    NSInputStream * stream = [[NSInputStream alloc] initWithURL:URL];
+    NSInputStream * stream =[[NSInputStream alloc] initWithURL:URL];
     [stream open];
     [stream setProperty:@(startPoint) forKey:NSStreamFileCurrentOffsetKey];
 
@@ -41,7 +40,7 @@
         }
     } else {
 
-        Byte * data = (Byte *)malloc(sizeof(Byte)*length);
+        Byte * data = malloc(sizeof(Byte)*length);
         NSInteger realLenght = [stream read:data maxLength:length];
         
         if(realLenght == 0 && error){
@@ -53,27 +52,9 @@
             return;
         }
         
-        NSData *readedData = [[NSData alloc] initWithBytesNoCopy:data length:length freeWhenDone:YES];
-        
-        NSArray *paths = NSSearchPathForDirectoriesInDomains(NSCachesDirectory, NSUserDomainMask, YES);
-        NSString *cachesDirectory = [paths objectAtIndex:0];
-        
-        NSString *chunkFileName = [NSString stringWithFormat:@"chunk_%@", [URL lastPathComponent]];
-        NSString *chunkDataFilePath = [cachesDirectory stringByAppendingPathComponent:chunkFileName];
-        
-        if ([[DXFileManager defaultManager] fileExistsAtPath:chunkDataFilePath]) {
-            [[DXFileManager defaultManager] removeItemAtPath:chunkDataFilePath error:nil];
-        }
-        
-        if ([[DXFileManager defaultManager] createFileAtPath:chunkDataFilePath
-                                                    contents:readedData
-                                                  attributes:nil]) {
+        NSData *resultData = [[NSData alloc] initWithBytesNoCopy:data length:length freeWhenDone:YES];
 
-            readedData = nil;
-            resultData = [[NSData alloc] initWithContentsOfFile:chunkDataFilePath];
-        }
-
-        Byte testByte[1];
+        Byte *testByte = malloc(sizeof(Byte));
         
         BOOL isFinished = !([stream read:testByte maxLength:1]);
         NSUInteger pointer = startPoint + realLenght;
@@ -81,8 +62,10 @@
         if(successHandler){
             successHandler(resultData, pointer, isFinished);
         }
+        free(testByte);
     }
     [stream close];
+    stream = nil;
 }
 
 @end
