@@ -18,7 +18,11 @@ beforeEach(^{
     startPoint = 0;
     returnedResultData = nil;
     returnedError = nil;
-    path = [NSURL URLWithString:[[NSBundle bundleWithIdentifier:@"test.111min.chunkgenerator"] pathForResource:@"car" ofType:@"png"]];
+    
+    NSBundle *bundle = [NSBundle bundleWithIdentifier:@"test.111min.chunkgenerator"];
+    path = [NSURL fileURLWithPath: [bundle pathForResource:@"car" ofType:@"png"]];
+    
+//    path = [NSURL URLWithString:[[NSBundle bundleWithIdentifier:@"test.111min.chunkgenerator"] pathForResource:@"car" ofType:@"png"]];
 });
 
 describe(@"Correct calling", ^{
@@ -114,7 +118,7 @@ describe(@"bad begin position", ^{
     it(@"uncorect start point",^{
         
         [DXDataChunkGenerator dataChunkForFileAtURL:path
-                                                from:0
+                                                from:fileLen
                                               length:1
                                       successHandler:nil
                                         errorHandler:^(NSError *error) {
