@@ -29,12 +29,13 @@
                 error([NSError errorWithDomain:@"not standard error" code:0 userInfo:[NSDictionary dictionaryWithObject:@"The maximum length was exceeded" forKey:@"error"]]);
         }
         
-        resultData = [NSData dataWithBytesNoCopy:data length:length freeWhenDone:YES];
-        Byte testByte[1];
-        
+        resultData = [[NSData alloc] initWithBytesNoCopy:data length:realLenght];
+
+        Byte *testByte = malloc(sizeof(Byte));
         if(success){
             success(resultData,startPoint+realLenght,!([stream read:testByte maxLength:1]));
         }
+        free(testByte);
     }
     [stream close];
 }

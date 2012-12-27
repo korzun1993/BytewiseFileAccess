@@ -29,7 +29,6 @@
     NSLog(@"URL - %@",url);
     for(int i = 0;i<1000000;i++){
         [BytewiseFileAccess dataURL:url from:0 length:2048 successHandler:^(NSData *data, NSUInteger ptr, BOOL isFinal) {
-            data = nil;
         } errorHandler:nil];
     }
 
