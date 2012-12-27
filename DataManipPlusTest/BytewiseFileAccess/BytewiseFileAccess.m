@@ -15,7 +15,7 @@
     NSData *resultData;
     NSInputStream * stream =[[NSInputStream alloc] initWithURL:URL];
     [stream open];
-    [stream setProperty:[NSNumber numberWithInt:startPoint] forKey:NSStreamFileCurrentOffsetKey];
+    [stream setProperty:[[NSNumber alloc] initWithInteger:startPoint] forKey: NSStreamFileCurrentOffsetKey];
     
     if([stream streamError]){
         if(error){
