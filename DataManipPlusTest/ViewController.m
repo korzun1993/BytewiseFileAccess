@@ -22,7 +22,11 @@
 
 -(void)memoryTest
 {
-   NSURL * url = [NSURL URLWithString:[[NSBundle mainBundle] pathForResource:@"XMLTest" ofType:@"xml"]];
+    
+    NSString *imgPath = [[NSBundle mainBundle] pathForResource:@"car" ofType:@"png"];
+    NSURL *url = [NSURL fileURLWithPath:imgPath];
+    
+    NSLog(@"URL - %@",url);
     for(int i = 0;i<1000000;i++){
         [BytewiseFileAccess dataURL:url from:0 length:2048 successHandler:^(NSData *data, NSUInteger ptr, BOOL isFinal) {
             data = nil;

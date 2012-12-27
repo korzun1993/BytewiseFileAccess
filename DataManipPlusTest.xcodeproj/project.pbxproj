@@ -10,8 +10,6 @@
 		CC5195F868334126BEA7F86D /* libPods-KiwiUnitTest.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 9E5EA6F10F054B4FBD8A16A4 /* libPods-KiwiUnitTest.a */; };
 		D3A42793168A08DF00D152A6 /* car.png in Resources */ = {isa = PBXBuildFile; fileRef = D3A42791168A07F600D152A6 /* car.png */; };
 		D3A42794168A096B00D152A6 /* car.png in Resources */ = {isa = PBXBuildFile; fileRef = D3A42791168A07F600D152A6 /* car.png */; };
-		D3A427D8168B347600D152A6 /* inrezoIcon.png in Resources */ = {isa = PBXBuildFile; fileRef = D3A427D7168B347600D152A6 /* inrezoIcon.png */; };
-		D3A427DA168B469000D152A6 /* inrezoIcon.png in Resources */ = {isa = PBXBuildFile; fileRef = D3A427D7168B347600D152A6 /* inrezoIcon.png */; };
 		D3CD97C2168BB80D000374EC /* BytewiseFileAccess.m in Sources */ = {isa = PBXBuildFile; fileRef = D3CD97C1168BB80D000374EC /* BytewiseFileAccess.m */; };
 		D3CD97C3168BB827000374EC /* BytewiseFileAccess.m in Sources */ = {isa = PBXBuildFile; fileRef = D3CD97C1168BB80D000374EC /* BytewiseFileAccess.m */; };
 		D3DB75431689F4B200E80EFF /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D3DB75421689F4B200E80EFF /* UIKit.framework */; };
@@ -35,7 +33,6 @@
 /* Begin PBXFileReference section */
 		9E5EA6F10F054B4FBD8A16A4 /* libPods-KiwiUnitTest.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-KiwiUnitTest.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		D3A42791168A07F600D152A6 /* car.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = car.png; path = ../car.png; sourceTree = "<group>"; };
-		D3A427D7168B347600D152A6 /* inrezoIcon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = inrezoIcon.png; sourceTree = "<group>"; };
 		D3CD97C0168BB80D000374EC /* BytewiseFileAccess.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BytewiseFileAccess.h; sourceTree = "<group>"; };
 		D3CD97C1168BB80D000374EC /* BytewiseFileAccess.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BytewiseFileAccess.m; sourceTree = "<group>"; };
 		D3DB753E1689F4B200E80EFF /* DataManipPlusTest.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DataManipPlusTest.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -150,6 +147,7 @@
 				D3DB754B1689F4B200E80EFF /* InfoPlist.strings */,
 				D3DB754E1689F4B200E80EFF /* main.m */,
 				D3DB75501689F4B200E80EFF /* DataManipPlusTest-Prefix.pch */,
+				D3A42791168A07F600D152A6 /* car.png */,
 				D3DB75541689F4B200E80EFF /* Default.png */,
 				D3DB75561689F4B200E80EFF /* Default@2x.png */,
 				D3DB75581689F4B200E80EFF /* Default-568h@2x.png */,
@@ -160,9 +158,7 @@
 		D3DB756F1689F4D900E80EFF /* KiwiUnitTest */ = {
 			isa = PBXGroup;
 			children = (
-				D3A42791168A07F600D152A6 /* car.png */,
 				D3DB75871689F5A300E80EFF /* Tests.mm */,
-				D3A427D7168B347600D152A6 /* inrezoIcon.png */,
 				D3DB75701689F4D900E80EFF /* Supporting Files */,
 			);
 			path = KiwiUnitTest;
@@ -255,7 +251,6 @@
 				D3DB75591689F4B200E80EFF /* Default-568h@2x.png in Resources */,
 				D3DB755F1689F4B200E80EFF /* ViewController.xib in Resources */,
 				D3A42794168A096B00D152A6 /* car.png in Resources */,
-				D3A427DA168B469000D152A6 /* inrezoIcon.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -265,7 +260,6 @@
 			files = (
 				D3DB75741689F4D900E80EFF /* InfoPlist.strings in Resources */,
 				D3A42793168A08DF00D152A6 /* car.png in Resources */,
-				D3A427D8168B347600D152A6 /* inrezoIcon.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
