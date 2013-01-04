@@ -18,6 +18,7 @@ beforeEach(^{
     startPoint = 0;
     returnedResultData = nil;
     returnedError = nil;
+    
     NSBundle *bundle = [NSBundle bundleWithIdentifier:@"test.111min.chunkgenerator"];
     path = [NSURL fileURLWithPath: [bundle pathForResource:@"car" ofType:@"png"]];
     fileLen = [[NSData dataWithContentsOfURL:path] length];

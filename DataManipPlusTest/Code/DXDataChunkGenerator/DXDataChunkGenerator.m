@@ -57,6 +57,7 @@
         Byte *testByte = malloc(sizeof(Byte));
         
         BOOL isFinished = ![stream read:testByte maxLength:1];
+        
         NSUInteger pointer = startPoint + length;
         
         if (successHandler) {
